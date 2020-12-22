@@ -8,7 +8,8 @@
         region: us-east-1
         aws_access_key: ASIASFON62WFA5G5Q6UR
         aws_secret_key: Swki2HQ5ZkwB/b2/oUf8dy3guooDxVn65B2/nRrd
-        security_token: FwoGZXIvYXdzEBcaDHjRpr0JlG8OXjeWpyLIAVMtfNxVoQg5JvagVHlXPqrpvO6TDJuP1idRk0/mPr20WX/oIuspzvDmzVq8Zy0SarMzZMZoUuk5l+S1g9ahLvx3BS0dsw5KUVXiz2pWFYELxbVlX0IWfUGHaOvCm/n/SeRyy/Gfup611C2vGK6P/2evbuVtAfFvEkWCS8e5xfk4ldYiYq9RFYTsP2liZw+l7j7fV2DMVuk7fxmqytFvxR4yMR5UtIG58LJKHtn1N7/+ShndTRmmF8LeNwAdYlEarRHBvjyKrd8DKITZif8FMi0SY9sUvfB4RBKxOhCFZlHP87MNthjUM/PJoEaP2N3UYNbpSBwJB4rOJHSSmoU=      register: info
+        security_token: FwoGZXIvYXdzEBcaDHjRpr0JlG8OXjeWpyLIAVMtfNxVoQg5JvagVHlXPqrpvO6TDJuP1idRk0/mPr20WX/oIuspzvDmzVq8Zy0SarMzZMZoUuk5l+S1g9ahLvx3BS0dsw5KUVXiz2pWFYELxbVlX0IWfUGHaOvCm/n/SeRyy/Gfup611C2vGK6P/2evbuVtAfFvEkWCS8e5xfk4ldYiYq9RFYTsP2liZw+l7j7fV2DMVuk7fxmqytFvxR4yMR5UtIG58LJKHtn1N7/+ShndTRmmF8LeNwAdYlEarRHBvjyKrd8DKITZif8FMi0SY9sUvfB4RBKxOhCFZlHP87MNthjUM/PJoEaP2N3UYNbpSBwJB4rOJHSSmoU= 
+      register: info
 
     - name: Launch EC2 instance
       ec2:
