@@ -6,9 +6,9 @@
     - name: Locate running EC2 instances
       ec2_instance_info:
         region: us-east-1
-        aws_access_key: ASIASFON62WFA5G5Q6UR
-        aws_secret_key: Swki2HQ5ZkwB/b2/oUf8dy3guooDxVn65B2/nRrd
-        security_token: FwoGZXIvYXdzEBcaDHjRpr0JlG8OXjeWpyLIAVMtfNxVoQg5JvagVHlXPqrpvO6TDJuP1idRk0/mPr20WX/oIuspzvDmzVq8Zy0SarMzZMZoUuk5l+S1g9ahLvx3BS0dsw5KUVXiz2pWFYELxbVlX0IWfUGHaOvCm/n/SeRyy/Gfup611C2vGK6P/2evbuVtAfFvEkWCS8e5xfk4ldYiYq9RFYTsP2liZw+l7j7fV2DMVuk7fxmqytFvxR4yMR5UtIG58LJKHtn1N7/+ShndTRmmF8LeNwAdYlEarRHBvjyKrd8DKITZif8FMi0SY9sUvfB4RBKxOhCFZlHP87MNthjUM/PJoEaP2N3UYNbpSBwJB4rOJHSSmoU= 
+        aws_access_key: ASIASFON62WFL4WS2YJY
+        aws_secret_key: 4t8Bi60xJnLMqfWrFDezyYs0Dzy5+BkPNiqYVU6M
+        security_token: FwoGZXIvYXdzEBgaDFqHZdEd2U24PLUj4yLIAf69n6XjbmjbBtmOiRPmEAyHgCe52QIdSFqdcHpUm0Uwjd179RuWZIzHIJyuyYdhj0oDgOXCq1NOzU8lHFPOoXiGHVC5Fv8+8NM0Zd3s+9XwgCZkvFUiAeDlN2yUoeZCrIK+l/vrw87/jfdPfHv2RuxMy5bBuZmphxrjxqMv1/N0+jIH5dtRpUopUH6je+vTzPpF3aEEU/qt45fEC0+T9dZjEpp1ciIXiCd/8V7ELIQ1AVl5SY3gJkTMrNdfq646sRdZWsjS//O6KOPiif8FMi1W8bULly9i4zq2EyccnDcdrJu57j8NvwroJb0uBGvyN2DfcsdLRV8DBArwFaE=
       register: info
 
     - name: Launch EC2 instance
@@ -16,15 +16,15 @@
         instance_type: t2.small
         image: ami-00ddb0e5626798373
         region: us-east-1
-        key_name: key2
+        key_name: keeey
         vpc_subnet_id: subnet-d70c8d88
         assign_public_ip: yes
         wait: yes
         count: 1
         group: eshop
-        aws_access_key: ASIASFON62WFA5G5Q6UR
-        aws_secret_key: Swki2HQ5ZkwB/b2/oUf8dy3guooDxVn65B2/nRrd
-        security_token: FwoGZXIvYXdzEBcaDHjRpr0JlG8OXjeWpyLIAVMtfNxVoQg5JvagVHlXPqrpvO6TDJuP1idRk0/mPr20WX/oIuspzvDmzVq8Zy0SarMzZMZoUuk5l+S1g9ahLvx3BS0dsw5KUVXiz2pWFYELxbVlX0IWfUGHaOvCm/n/SeRyy/Gfup611C2vGK6P/2evbuVtAfFvEkWCS8e5xfk4ldYiYq9RFYTsP2liZw+l7j7fV2DMVuk7fxmqytFvxR4yMR5UtIG58LJKHtn1N7/+ShndTRmmF8LeNwAdYlEarRHBvjyKrd8DKITZif8FMi0SY9sUvfB4RBKxOhCFZlHP87MNthjUM/PJoEaP2N3UYNbpSBwJB4rOJHSSmoU=
+        aws_access_key: ASIASFON62WFL4WS2YJY
+        aws_secret_key: 4t8Bi60xJnLMqfWrFDezyYs0Dzy5+BkPNiqYVU6M
+        security_token: FwoGZXIvYXdzEBgaDFqHZdEd2U24PLUj4yLIAf69n6XjbmjbBtmOiRPmEAyHgCe52QIdSFqdcHpUm0Uwjd179RuWZIzHIJyuyYdhj0oDgOXCq1NOzU8lHFPOoXiGHVC5Fv8+8NM0Zd3s+9XwgCZkvFUiAeDlN2yUoeZCrIK+l/vrw87/jfdPfHv2RuxMy5bBuZmphxrjxqMv1/N0+jIH5dtRpUopUH6je+vTzPpF3aEEU/qt45fEC0+T9dZjEpp1ciIXiCd/8V7ELIQ1AVl5SY3gJkTMrNdfq646sRdZWsjS//O6KOPiif8FMi1W8bULly9i4zq2EyccnDcdrJu57j8NvwroJb0uBGvyN2DfcsdLRV8DBArwFaE=
       register: ec2
 
     - name: Add instance host to group
@@ -44,7 +44,7 @@
       apt:
         name: docker.io
         state: present
-        update_cache: yes
+        update_cache : yes
      
       become: yes
     - service:
@@ -54,7 +54,7 @@
       become: yes
     - name: Get project files from git
       git:
-        repo: 'https://github.com/dolotinaelvira/semestralka-devops.git'
+        repo: 'https://github.com/dolotinaelvira/repository.git'
         dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
@@ -77,9 +77,9 @@
         region: us-east-1
         state: 'absent'
         instance_ids: '{{ item.instance_id }}'
-        aws_access_key: ASIASFON62WFA5G5Q6UR
-        aws_secret_key: Swki2HQ5ZkwB/b2/oUf8dy3guooDxVn65B2/nRrd
-        security_token: FwoGZXIvYXdzEBcaDHjRpr0JlG8OXjeWpyLIAVMtfNxVoQg5JvagVHlXPqrpvO6TDJuP1idRk0/mPr20WX/oIuspzvDmzVq8Zy0SarMzZMZoUuk5l+S1g9ahLvx3BS0dsw5KUVXiz2pWFYELxbVlX0IWfUGHaOvCm/n/SeRyy/Gfup611C2vGK6P/2evbuVtAfFvEkWCS8e5xfk4ldYiYq9RFYTsP2liZw+l7j7fV2DMVuk7fxmqytFvxR4yMR5UtIG58LJKHtn1N7/+ShndTRmmF8LeNwAdYlEarRHBvjyKrd8DKITZif8FMi0SY9sUvfB4RBKxOhCFZlHP87MNthjUM/PJoEaP2N3UYNbpSBwJB4rOJHSSmoU=
+        aws_access_key: ASIASFON62WFL4WS2YJY
+        aws_secret_key: 4t8Bi60xJnLMqfWrFDezyYs0Dzy5+BkPNiqYVU6M
+        security_token: FwoGZXIvYXdzEBgaDFqHZdEd2U24PLUj4yLIAf69n6XjbmjbBtmOiRPmEAyHgCe52QIdSFqdcHpUm0Uwjd179RuWZIzHIJyuyYdhj0oDgOXCq1NOzU8lHFPOoXiGHVC5Fv8+8NM0Zd3s+9XwgCZkvFUiAeDlN2yUoeZCrIK+l/vrw87/jfdPfHv2RuxMy5bBuZmphxrjxqMv1/N0+jIH5dtRpUopUH6je+vTzPpF3aEEU/qt45fEC0+T9dZjEpp1ciIXiCd/8V7ELIQ1AVl5SY3gJkTMrNdfq646sRdZWsjS//O6KOPiif8FMi1W8bULly9i4zq2EyccnDcdrJu57j8NvwroJb0uBGvyN2DfcsdLRV8DBArwFaE=
 
       loop: "{{ info.instances }}"
       loop_control:
